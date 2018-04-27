@@ -1,0 +1,12 @@
+.DS_Store
+node_modules
+dist
+doc
+.idea
+.tmp
+client/public
+coverage
+npm-debug.log
+.vscode
+yarn.lock
+yarn-error.log

@@ -1,0 +1,24 @@
+<% const publicPath = webpackConfig.output.publicPath %>
+<% const chunk = htmlWebpackPlugin.files.chunks.main %>
+<% const css = chunk.css %>
+<% const cssList = _.isArray(css) ? css : [css] %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>主页</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="robots" content="all">
+    <meta name="author" content="hzsuqin, 15957136119@163.com">
+    <link rel="dns-prefetch" href="http://res.queenlan.cn">
+    <% cssList.forEach(item => { %> <link rel="stylesheet" href="<%= item %>"> <% }) %>
+    <script src="http://res.queenlan.cn/comm/js/polyfill.min.js"></script>
+</head>
+<body>
+
+    <script src="<%= chunk.entry %>"></script>
+</body>
+</html>
