@@ -5,7 +5,12 @@ require('babel-polyfill');
 
 const path = require('path');
 const router = require('../server').default;
+const Mock = require('mockjs');
+const mockData = require('./mock.js').default;
 const pkg = require('../package.json');
+
+
+// 引入前后分离中间层模块
 const middleLayer = require('site-middle-layer');
 
 router.prefix(pkg.publishConfig.path);
@@ -22,7 +27,26 @@ const app = middleLayer.create({
     render: {
         root: path.join(__dirname, '../.tmp')
     },
+    proxy: {
+        target: 'http://backend-test.hyp.163.com'
+    },
     router
 });
+
+// 为了使用mock.js，这里我们重写app上面的proxy方法;
+const oldProxy = app.context.proxy;
+
+app.context.proxy = function (...args) {
+    if (mockData.hasOwnProperty(args[0].url)) {
+        return Promise.resolve({
+            data: {
+                resCode: 0,
+                data: Mock.mock(mockData[args[0].url])
+            }
+        });
+    }
+
+    return oldProxy.call(this, ...args);
+};
 
 app.listen(4000);

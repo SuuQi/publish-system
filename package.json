@@ -51,6 +51,7 @@
     "lodash": "^4.17.10",
     "mini-css-extract-plugin": "^0.4.0",
     "mkdirp": "^0.5.1",
+    "mockjs": "^1.0.1-beta3",
     "postcss-loader": "^2.1.4",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
@@ -68,6 +69,6 @@
     "distCmd": "dist:prod"
   },
   "dependencies": {
-    "site-middle-layer": "^1.0.1"
+    "site-middle-layer": "^1.0.2"
   }
 }

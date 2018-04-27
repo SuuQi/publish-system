@@ -60,7 +60,7 @@ module.exports = {
             chunkFilename: '[id]_[hash].css'
         }),
         new HtmlWebpackPlugin({
-            filename: 'index.html',
+            filename: 'index.ejs',
             template: '../client/index.ejs',
             chunks: ['main'],
             inject: false

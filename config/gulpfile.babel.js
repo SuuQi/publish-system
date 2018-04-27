@@ -76,6 +76,7 @@ gulp.task('serve', ['start:server'], () => {
     browserSync.init({
         startPath: pkg.publishConfig.path,
         https: false,
+        proxy: 'localhost:4000',
         middleware: [
             webpackDevMiddleware(compiler, {
                 publicPath: webpackConfig.output.publicPath,
