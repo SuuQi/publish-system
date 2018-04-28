@@ -1,6 +1,6 @@
 {
   "name": "site-front-frontend",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "网站前端项目",
   "main": "dist/index.js",
   "repository": "git@github.com:SuuQi/site-frontend.git",
